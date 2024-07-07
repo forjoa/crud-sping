@@ -39,4 +39,10 @@ public class ContactController {
 
         return contactRespository.save(contactFromDb);
     }
+
+    @DeleteMapping("{id}")
+    public void delete (@PathVariable Integer id) {
+        Contact contactFromDb = contactRespository.findById(id).orElse(null);
+        contactRespository.delete(contactFromDb);
+    }
 }
