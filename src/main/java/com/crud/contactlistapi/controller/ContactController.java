@@ -5,6 +5,8 @@ import com.crud.contactlistapi.repositories.ContactRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RequestMapping("/api/contacts")
 @RestController
 public class ContactController {
@@ -23,6 +25,7 @@ public class ContactController {
 
     @PostMapping
     public Contact create(@RequestBody Contact contact) {
+        contact.setCreatedAt(LocalDateTime.now());
         return contactRespository.save(contact);
     }
 }
