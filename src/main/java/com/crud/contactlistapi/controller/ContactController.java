@@ -28,4 +28,15 @@ public class ContactController {
         contact.setCreatedAt(LocalDateTime.now());
         return contactRespository.save(contact);
     }
+
+    @PutMapping("{id}")
+    public Contact update(@PathVariable Integer id,
+                          @RequestBody Contact contact) {
+        Contact contactFromDb = contactRespository.findById(id).orElse(null);
+
+        contactFromDb.setName(contact.getName());
+        contactFromDb.setEmail(contact.getEmail());
+
+        return contactRespository.save(contactFromDb);
+    }
 }
