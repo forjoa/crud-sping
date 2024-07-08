@@ -27,7 +27,7 @@ public class ContactService {
     }
 
     public Contact update(Integer id, Contact contact) {
-        Contact contactFromDb = contactRespository.findById(id).orElse(null);
+        Contact contactFromDb = findById(id);
 
         contactFromDb.setName(contact.getName());
         contactFromDb.setEmail(contact.getEmail());
@@ -36,7 +36,7 @@ public class ContactService {
     }
 
     public void delete(Integer id) {
-        Contact contactFromDb = contactRespository.findById(id).orElse(null);
+        Contact contactFromDb = findById(id);
         contactRespository.delete(contactFromDb);
     }
 }
