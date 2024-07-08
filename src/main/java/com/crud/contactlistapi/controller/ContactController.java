@@ -2,14 +2,15 @@ package com.crud.contactlistapi.controller;
 
 import com.crud.contactlistapi.entity.Contact;
 import com.crud.contactlistapi.services.ContactService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+@AllArgsConstructor
 @RequestMapping("/api/contacts")
 @RestController
 public class ContactController {
-    @Autowired
-    private ContactService contactService;
+
+    private final ContactService contactService;
 
     @GetMapping
     public Iterable<Contact> list() {
