@@ -4,8 +4,6 @@ import com.crud.contactlistapi.entity.Contact;
 import com.crud.contactlistapi.repositories.ContactRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +17,7 @@ public class ContactService {
         return contactRespository.findAll();
     }
 
-    public Contact get(Integer id) {
+    public Contact findById(Integer id) {
         return contactRespository.findById(id).orElse(null);
     }
 
