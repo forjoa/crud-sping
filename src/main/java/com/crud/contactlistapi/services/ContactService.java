@@ -2,16 +2,17 @@ package com.crud.contactlistapi.services;
 
 import com.crud.contactlistapi.entity.Contact;
 import com.crud.contactlistapi.repositories.ContactRespository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Service
 public class ContactService {
 
-    @Autowired
-    private ContactRespository contactRespository;
+    private final ContactRespository contactRespository;
 
     public Iterable<Contact> findAll() {
         return contactRespository.findAll();
